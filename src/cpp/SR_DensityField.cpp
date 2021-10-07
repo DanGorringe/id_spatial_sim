@@ -105,11 +105,11 @@ SR::DensityField::DensityField(string filename) {
 	maxy=miny+(noy-1)*stepy;
 
 	for (int i=noy-1;i>=0;--i) {
-		for (int j=0;j<nox;++j) {
+		for (int j=nox-1;j>=0;--j) {
 			ifs >> tmp;
 			if (tmp == nullData) tmp = 0;
 			//total += tmp; //Add here to track total?
-			vals[j*noy+(noy-i-1)]=tmp;
+			vals[(nox-j-1)*noy + i] = tmp;
 		}
 	}
 
